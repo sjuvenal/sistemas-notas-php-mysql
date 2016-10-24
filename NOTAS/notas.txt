@@ -1,0 +1,219 @@
+-- phpMyAdmin SQL Dump
+-- version 2.10.3
+-- http://www.phpmyadmin.net
+-- 
+-- Servidor: localhost
+-- Tiempo de generación: 29-05-2012 a las 16:41:01
+-- Versión del servidor: 5.0.51
+-- Versión de PHP: 5.2.6
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+-- 
+-- Base de datos: `notas`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `alumno`
+-- 
+
+CREATE TABLE `alumno` (
+  `alucodigo` int(11) NOT NULL,
+  `alunombre` varchar(40) NOT NULL,
+  `alupaterno` varchar(30) NOT NULL,
+  `alumaterno` varchar(30) NOT NULL,
+  `alusexo` varchar(15) NOT NULL,
+  `aludireccion` varchar(40) NOT NULL,
+  `alutelefono` varchar(30) NOT NULL,
+  `alufechanac` datetime NOT NULL,
+  `aluclave` varchar(13) NOT NULL,
+  `aludni` varchar(8) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- Volcar la base de datos para la tabla `alumno`
+-- 
+
+INSERT INTO `alumno` VALUES (1, 'Santos Juvenal', 'Quispe', 'Tapia', 'Masculino', 'cale iquitos 1210', '947595965', '1992-04-16 00:00:00', '0001', '46937287');
+INSERT INTO `alumno` VALUES (2, 'Yoli Lili', 'Mnedoza', 'Villegas', 'Femenino', 'calle huamantanga sin #', '996479342', '1992-12-18 00:00:00', '0002', '40072306');
+INSERT INTO `alumno` VALUES (3, 'Carlos', 'Paisig', 'Roque', 'Masculino', 'calle jaen', '656543467', '1990-05-14 00:00:00', '0006', '73653765');
+INSERT INTO `alumno` VALUES (4, 'Eduardo', 'Arnao', 'Guevara', 'Masculino', 'calle nose nada', '64646578', '1991-04-25 00:00:00', '0007', '45646576');
+INSERT INTO `alumno` VALUES (5, 'Yeny', 'Troya', 'Herrera', 'Femenino', 'calle los cedros miraflores', '323565475', '1991-04-25 00:00:00', '0008', '35235235');
+INSERT INTO `alumno` VALUES (6, 'Roiser', 'Quispe', 'Tapia', 'Masculino', 'calle lima jaen', '3634643646', '1992-04-25 00:00:00', '9', '87654321');
+INSERT INTO `alumno` VALUES (7, 'milver', 'quispe', 'tapia', 'Masculino', 'calle iquitos 1213', '23456788', '1984-05-14 00:00:00', '10', '11111111');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `curso`
+-- 
+
+CREATE TABLE `curso` (
+  `curcodigo` int(11) NOT NULL,
+  `docodigo` int(11) NOT NULL,
+  `curnombre` varchar(40) NOT NULL,
+  `curdescripcion` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- Volcar la base de datos para la tabla `curso`
+-- 
+
+INSERT INTO `curso` VALUES (1, 2, 'lenguaje', 'lenguage de m.........');
+INSERT INTO `curso` VALUES (2, 2, 'matematica', 'solo de m............');
+INSERT INTO `curso` VALUES (3, 2, 'personal', 'solo de m.........');
+INSERT INTO `curso` VALUES (4, 2, 'comercio electronico', 'buena juve');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `docente`
+-- 
+
+CREATE TABLE `docente` (
+  `docodigo` int(11) NOT NULL,
+  `donombre` varchar(40) NOT NULL,
+  `doapellidos` varchar(40) NOT NULL,
+  `dosexo` varchar(20) NOT NULL,
+  `dodni` varchar(8) NOT NULL,
+  `dodireccion` varchar(40) NOT NULL,
+  `dotelefono` varchar(30) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- Volcar la base de datos para la tabla `docente`
+-- 
+
+INSERT INTO `docente` VALUES (4, 'yoli', 'mendoza vilegas', 'Masculino', '33464564', 'calle iquitos 1210', '53532543');
+INSERT INTO `docente` VALUES (2, 'santos juvenal', 'quispe tapia', 'Masculino', '46938772', 'calle iquitos 1210', '135327578');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `grado`
+-- 
+
+CREATE TABLE `grado` (
+  `gracodigo` int(11) NOT NULL,
+  `secodigo` int(11) NOT NULL,
+  `granombre` varchar(40) NOT NULL,
+  `gradescripcion` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- Volcar la base de datos para la tabla `grado`
+-- 
+
+INSERT INTO `grado` VALUES (8, 3, '2 grado', 'aula los pichitos');
+INSERT INTO `grado` VALUES (1, 4, '1 grado', 'las aquilas');
+INSERT INTO `grado` VALUES (2, 2, '1 grado', 'los cachos');
+INSERT INTO `grado` VALUES (3, 3, '1 grado', 'los del norte');
+INSERT INTO `grado` VALUES (4, 5, '1 grado', 'los quispe');
+INSERT INTO `grado` VALUES (5, 6, '1 grado', 'los sedal');
+INSERT INTO `grado` VALUES (6, 4, '2 grado', 'LOS malqcriados');
+INSERT INTO `grado` VALUES (7, 4, '3 grado', 'aula numero d me....');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `matricula`
+-- 
+
+CREATE TABLE `matricula` (
+  `nmatricula` int(11) NOT NULL,
+  `alucodigo` int(11) NOT NULL,
+  `gracodigo` int(11) NOT NULL,
+  `mfecha` datetime NOT NULL,
+  `mhora` time NOT NULL,
+  `mturno` varchar(20) NOT NULL,
+  `mperiodo` varchar(20) NOT NULL,
+  `pagomat` double NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- Volcar la base de datos para la tabla `matricula`
+-- 
+
+INSERT INTO `matricula` VALUES (1, 1, 7, '2012-02-22 00:00:00', '12:00:00', 'Tarde', '2012-II', 60);
+INSERT INTO `matricula` VALUES (2, 2, 8, '2012-02-22 00:00:00', '12:00:00', 'Tarde', '2012-II', 60);
+INSERT INTO `matricula` VALUES (3, 3, 5, '2012-02-22 00:00:00', '12:08:00', 'Noche', '2012-II', 60);
+INSERT INTO `matricula` VALUES (4, 6, 1, '2012-02-23 00:00:00', '00:00:00', 'Tarde', '2012-II', 60);
+INSERT INTO `matricula` VALUES (5, 7, 8, '2012-02-24 00:00:00', '12:12:00', 'Tarde', '2012-II', 60);
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `nota`
+-- 
+
+CREATE TABLE `nota` (
+  `nocodigo` int(11) NOT NULL,
+  `nmatricula` int(11) NOT NULL,
+  `curcodigo` int(11) NOT NULL,
+  `nota1` int(11) NOT NULL,
+  `nota2` int(11) NOT NULL,
+  `nota3` int(11) NOT NULL,
+  `nopromedio` int(11) NOT NULL,
+  `nocondicion` varchar(30) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- Volcar la base de datos para la tabla `nota`
+-- 
+
+INSERT INTO `nota` VALUES (6, 2, 1, 13, 12, 13, 13, 'Aprobado');
+INSERT INTO `nota` VALUES (7, 1, 2, 13, 12, 12, 12, 'Aprobado');
+INSERT INTO `nota` VALUES (9, 4, 4, 14, 16, 18, 16, 'Aprobado');
+INSERT INTO `nota` VALUES (8, 1, 1, 15, 12, 12, 13, 'Aprobado');
+INSERT INTO `nota` VALUES (10, 5, 1, 13, 14, 16, 14, 'Aprobado');
+INSERT INTO `nota` VALUES (11, 5, 2, 12, 13, 13, 13, 'Aprobado');
+INSERT INTO `nota` VALUES (12, 5, 4, 12, 12, 15, 13, 'Desaprobado');
+INSERT INTO `nota` VALUES (13, 0, 0, 0, 0, 0, 0, 'Desaprobado');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `seccion`
+-- 
+
+CREATE TABLE `seccion` (
+  `secodigo` int(11) NOT NULL,
+  `senombre` varchar(40) NOT NULL,
+  `sedescripcion` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- Volcar la base de datos para la tabla `seccion`
+-- 
+
+INSERT INTO `seccion` VALUES (4, 'A', 'solo los mejores puestos');
+INSERT INTO `seccion` VALUES (2, 'B', 'seccion para alumnos inteligentes');
+INSERT INTO `seccion` VALUES (3, 'C', 'seccion una a mierda');
+INSERT INTO `seccion` VALUES (5, 'D', 'las personas que deven');
+INSERT INTO `seccion` VALUES (6, 'E', 'los alumno de e');
+INSERT INTO `seccion` VALUES (8, 'F', 'so0lamente la F');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `usuario`
+-- 
+
+CREATE TABLE `usuario` (
+  `uscodigo` int(11) NOT NULL,
+  `usnombre` varchar(40) NOT NULL,
+  `usapellidos` varchar(40) NOT NULL,
+  `ususuario` varchar(40) NOT NULL,
+  `ustipo` varchar(40) NOT NULL,
+  `usclave` varchar(20) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- Volcar la base de datos para la tabla `usuario`
+-- 
+
+INSERT INTO `usuario` VALUES (1, 'santos juvenal', 'mendoza villegas', 'juvenal', 'personal', '1111');
+INSERT INTO `usuario` VALUES (3, 'Roiser', 'Quispe Tapia', '87654321', 'alumno', '9');
+INSERT INTO `usuario` VALUES (4, 'milver', 'quispe tapia', '11111111', 'alumno', '10');
